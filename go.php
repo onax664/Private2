@@ -44,7 +44,7 @@ if ($mode !== 'vuot') {
     <p>Chọn một trong hai cách bên dưới.</p>
     <a class="btn vuot" href="go.php?m=vuot">Vượt link</a>
     <small>Miễn phí, làm theo các bước vượt link.</small>
-    <small class="flow">gtraffic.io-gtraffic.io-link4m</small>
+    <small class="flow">gtraffic.io->gtraffic.io->link4m.com</small>
     <a class="btn buy" href="https://t.me/onaxscript">Mua link - <?= htmlspecialchars($price, ENT_QUOTES, 'UTF-8') ?>đ</a>
     <small>Trả phí để bỏ qua các bước vượt.</small>
   </div>
