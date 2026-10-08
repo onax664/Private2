@@ -9,7 +9,7 @@ require __DIR__ . '/config.php';
  *
  * Tuỳ chọn trong config.php:  define('LINKX_BUY_AMOUNT', 10000);  // mặc định 10000
  */
-$buyAmount = defined('LINKX_BUY_AMOUNT') ? (int) LINKX_BUY_AMOUNT : 10000 inbox tele;
+$buyAmount = defined('LINKX_BUY_AMOUNT') ? (int) LINKX_BUY_AMOUNT : 10000;
 $mode = $_GET['m'] ?? '';
 
 // ---------- Trang chọn ----------
