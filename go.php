@@ -9,7 +9,7 @@ require __DIR__ . '/config.php';
  *
  * Tuỳ chọn trong config.php:  define('LINKX_BUY_AMOUNT', 10000);  // mặc định 10000
  */
-$buyAmount = defined('LINKX_BUY_AMOUNT') ? (int) LINKX_BUY_AMOUNT : 10000;
+$buyAmount = defined('LINKX_BUY_AMOUNT') ? (int) LINKX_BUY_AMOUNT : 10000 inbox tele;
 $mode = $_GET['m'] ?? '';
 
 // ---------- Trang chọn ----------
@@ -74,7 +74,7 @@ $u = 'https://vuotlink.xyz/st?api='    . VUOTLINK_API . '&url=' . urlencode($u);
 // linkx: "vuot" = chỉ vượt link; "buy" = bật thêm mua link
 $linkx = 'https://linkx.me/st?api=' . LINKX_API;
 if ($mode === 'buy') {
-  $linkx .= '&buy_type=buy-all&amount=' . $buyAmount;
+  $linkx .= '&buy_type=buy-all&amount=10000' . $buyAmount;
 }
 $u = $linkx . '&url=' . urlencode($u);
 
