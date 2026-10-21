@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONAX</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 22px 16px 48px; font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1b2a4e; background: linear-gradient(180deg, #e6f0ff, #f5f8ff 45%, #eaf1fb); }
+  .wrap { max-width: 480px; margin: 0 auto; }
+  .c { text-align: center; }
+  .top { padding: 6px 8px 0; font-size: 19px; font-weight: 900; }
+  .avatar { display: block; width: 210px; height: 210px; margin: 26px auto 24px; border-radius: 50%; object-fit: cover; box-shadow: 0 22px 50px rgba(59, 130, 246, .3), 0 0 0 6px #fff; }
+  .tag { display: inline-block; padding: 10px 28px; border: 2px solid #b9d3f2; border-radius: 999px; background: rgba(255, 255, 255, .6); font-weight: 900; letter-spacing: 6px; color: #4b79b5; box-shadow: 0 4px 14px rgba(59, 130, 246, .12); }
+  .hi { margin: 18px 0 0; font-size: 24px; font-weight: 700; color: #5b6b8a; }
+  h1 { margin: 2px 0 6px; font-size: 58px; line-height: 1.1; font-weight: 900; }
+  .ok { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-left: 8px; border-radius: 50%; background: #3b82f6; color: #fff; font-size: 26px; vertical-align: middle; box-shadow: 0 0 0 6px rgba(59, 130, 246, .2); }
+  .slogan { margin: 0 0 26px; font-size: 21px; font-weight: 800; color: #5b6b8a; }
+  .soc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+  .soc a, .stats, .game { background: #fff; border: 1px solid #e3ecf7; box-shadow: 0 8px 20px rgba(30, 64, 120, .08), 0 4px 0 #dbe6f5; }
+  .soc a { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 6px; border-radius: 20px; color: #1b2a4e; font-weight: 800; font-size: 17px; text-decoration: none; }
+  .soc b { font-size: 20px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding: 20px 4px; margin-bottom: 30px; border-radius: 30px; text-align: center; }
+  .stats div + div { border-left: 1px solid #e5ecf5; }
+  .stats i { display: block; font-size: 26px; font-style: normal; }
+  .stats b { display: block; margin: 6px 0 2px; font-size: 22px; font-weight: 900; }
+  .stats span { font-size: 14px; font-weight: 700; color: #5b6b8a; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border: 2px solid #bcd3f0; border-radius: 999px; background: #fff; color: #2f6fd0; font-weight: 900; letter-spacing: 3px; }
+  h2 { display: flex; align-items: center; gap: 12px; margin: 22px 0 14px; font-size: 42px; font-weight: 900; }
+  .game { display: flex; align-items: center; gap: 14px; padding: 18px; border: 1.5px solid #a9d9c1; border-radius: 30px; }
+  .game img { flex: none; width: 96px; height: 96px; border-radius: 24px; object-fit: cover; }
+  .game .info { flex: 1; min-width: 0; }
+  .game h3 { margin: 0 0 4px; font-size: 24px; font-weight: 900; }
+  .game small { display: block; margin-bottom: 8px; font-size: 16px; font-weight: 700; color: #6b7a99; }
+  .game small:before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; border-radius: 50%; background: #4aa8f0; }
+  .b { display: inline-block; padding: 5px 14px; border: 2px solid #22c55e; border-radius: 999px; color: #15803d; font-size: 14px; font-weight: 900; text-decoration: none; }
+  .b.p { margin-left: 6px; border-color: #b9d7f0; color: #4aa0e0; background: #eef6ff; }
+  .dl { flex: none; display: grid; place-items: center; width: 92px; height: 92px; border-radius: 26px; background: linear-gradient(135deg, #12a35a, #0e7a43); box-shadow: 0 10px 24px rgba(18, 163, 90, .4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top" id="top">Good Day!</div>
+
+  <div class="c">
+    <img class="avatar" src="avatar.jpg" alt="">
+    <div class="tag">ONAX</div>
+    <p class="hi">Hi, I am</p>
+    <h1>Onax<span class="ok">✓</span></h1>
+    <p class="slogan">Chia sẻ mod Liên Quân.</p>
+  </div>
+
+  <div class="soc">
+    <a href="https://www.tiktok.com/@onaxmod?_r=1&amp;_t=ZS-9AXTJBcDtkk" target="_blank" rel="noopener"><b>♪</b>TikTok</a>
+    <a href="https://t.me/onaxscript" target="_blank" rel="noopener"><b style="color:#2aa3e0">➤</b>Telegram</a>
+    <a href="https://youtube.com/@onaxmod?si=tJ_kIi-CByVLvbGt" target="_blank" rel="noopener"><b style="color:#e53935">▶</b>YouTube</a>
+  </div>
+
+  <div class="stats c">
+    <div><i>⬇️</i><b id="dl" style="color:#1d6fd6">0</b><span>Lượt tải</span></div>
+    <div><i>🔑</i><b id="keys" style="color:#15803d">0</b><span>Key đã lấy</span></div>
+    <div><i>📅</i><b id="year" style="color:#b45309">2026</b><span>Cập nhật</span></div>
+    <div><i>🎮</i><b style="color:#6d28d9">1</b><span>Game</span></div>
+  </div>
+
+  <span class="pill"><svg width="22" height="22" viewBox="0 0 24 24" fill="#2f6fd0"><path d="M11 3h2v9.2l3.3-3.3 1.4 1.4L12 16.1 6.3 10.3l1.4-1.4L11 12.2V3ZM4 18h16v3H4v-3Z"/></svg>TẢI GAME</span>
+  <h2><svg width="46" height="46" viewBox="0 0 24 24" fill="#3ddc84"><path d="M17.6 9.48l1.84-3.18a.64.64 0 0 0-1.1-.63l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-1.09.63L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52ZM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z"/></svg>Android</h2>
+
+  <div class="game">
+    <img src="https://i.postimg.cc/5tkBjTqK/unnamed.png" alt="">
+    <div class="info">
+      <h3>Hack Map V1</h3>
+      <small>Cập nhật 10/10/2026 17:12</small>
+      <span class="b">Android</span><a class="b p" href="v1.html">Preview</a>
+    </div>
+    <a class="dl" href="v1.html" aria-label="Tải về"><svg width="48" height="48" viewBox="0 0 24 24" fill="#fff"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg></a>
+  </div>
+</div>
+<script>
+  var fmt = function (n) { return Number(n || 0).toLocaleString('vi-VN'); };
+  var p = function (n) { return n < 10 ? '0' + n : n; };
+  function tick() {
+    var d = new Date(), h = d.getHours();
+    var g = h < 5 ? 'Good Night' : h < 11 ? 'Good Morning' : h < 13 ? 'Good Noon' : h < 18 ? 'Good Afternoon' : 'Good Evening';
+    document.getElementById('top').textContent = g + '! ' + p(h) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds()) + (h >= 6 && h < 18 ? ' ☀️' : ' 🌙');
+  }
+  tick(); setInterval(tick, 1000);
+  document.getElementById('year').textContent = new Date().getFullYear();
+  fetch('stats.php', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      document.getElementById('dl').textContent = fmt(d.downloads);
+      document.getElementById('keys').textContent = fmt(d.keys);
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>

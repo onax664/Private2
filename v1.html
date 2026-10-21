@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hack Map V1 - ONAX</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding-bottom: 40px; font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1b2a4e; background: linear-gradient(180deg, #e6f0ff, #f5f8ff 45%, #eaf1fb); }
+  .banner { position: relative; height: 300px; background: #1b2a4e url(xt-02.jpg) center / cover; }
+  .banner:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(238, 243, 251, 0) 40%, #eef3fb); }
+  .back { position: absolute; z-index: 2; top: 16px; left: 16px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: rgba(0, 0, 0, .4); }
+  .head { position: relative; z-index: 1; display: flex; gap: 16px; align-items: flex-end; margin: -78px 20px 0; }
+  .icon { flex: none; width: 118px; height: 118px; border-radius: 30px; object-fit: cover; border: 4px solid #fff; box-shadow: 0 10px 24px rgba(30, 64, 120, .25); }
+  .badge { display: inline-block; padding: 5px 14px; border: 2.5px solid #22c55e; border-radius: 999px; background: #fff; color: #15803d; font-size: 15px; font-weight: 900; }
+  .badge.hot { margin-left: 6px; border-color: #f59e0b; color: #b45309; }
+  h1 { margin: 8px 0 2px; font-size: 34px; font-weight: 900; }
+  .count { font-size: 20px; font-weight: 700; color: #5b6b8a; }
+  .actions { display: grid; gap: 16px; padding: 24px 20px; }
+  .btn { display: block; width: 100%; padding: 26px 10px; border: 0; border-radius: 999px; font: 900 24px Nunito, system-ui, sans-serif; text-align: center; text-decoration: none; color: #fff; cursor: pointer; }
+  .green { background: linear-gradient(135deg, #22b865, #16a34a); box-shadow: 0 10px 24px rgba(34, 184, 101, .35); }
+  .orange { background: linear-gradient(135deg, #f7a823, #f59e0b); box-shadow: 0 10px 24px rgba(245, 158, 11, .35); }
+  .card { margin: 0 20px 20px; background: #fff; border: 1px solid #e3ecf7; border-radius: 30px; overflow: hidden; box-shadow: 0 8px 20px rgba(30, 64, 120, .08); }
+  .card h2 { margin: 0; padding: 22px 24px 8px; font-size: 30px; font-weight: 900; }
+  .view { position: relative; margin: 12px 16px; border-radius: 20px; overflow: hidden; background: #0f172a; touch-action: pan-y; }
+  .view img { display: block; width: 100%; height: auto; }
+  .nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(0, 0, 0, .45); color: #fff; font-size: 28px; cursor: pointer; }
+  .nav.l { left: 8px; } .nav.r { right: 8px; }
+  .cnt { position: absolute; right: 10px; bottom: 10px; padding: 4px 14px; border-radius: 999px; background: rgba(0, 0, 0, .6); color: #fff; font-size: 16px; font-weight: 800; }
+  .thumbs { display: flex; gap: 10px; overflow-x: auto; padding: 0 16px 16px; }
+  .thumbs img { flex: none; width: 112px; height: 62px; object-fit: cover; border-radius: 14px; border: 3px solid transparent; cursor: pointer; }
+  .thumbs img.on { border-color: #3b82f6; }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding: 18px 24px; border-top: 1px solid #e5ecf5; font-size: 19px; }
+  .row span { color: #5b6b8a; font-weight: 700; } .row b { text-align: right; word-break: break-all; }
+  .modal { display: none; position: fixed; inset: 0; z-index: 50; padding: 20px; background: rgba(15, 23, 42, .6); backdrop-filter: blur(6px); align-items: center; justify-content: center; }
+  .modal.on { display: flex; }
+  .box { width: 100%; max-width: 420px; padding: 28px 22px; border-radius: 32px; background: #fff; text-align: center; }
+  .box h2 { margin: 0 0 6px; font-size: 34px; font-weight: 900; }
+  .box p { margin: 0 0 20px; color: #6b7280; font-size: 18px; font-weight: 700; }
+  .pick { display: block; margin-bottom: 14px; padding: 18px 12px; border-radius: 999px; text-decoration: none; color: #fff; font-weight: 900; font-size: 22px; }
+  .pick small { display: block; margin-top: 2px; font-size: 15px; font-weight: 600; opacity: .92; }
+  .pick.r { background: #dc2626; } .pick.v { background: #5b21b6; }
+  .close { margin-top: 6px; background: none; border: 0; color: #dc2626; font: 900 20px Nunito, system-ui, sans-serif; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="banner">
+  <a class="back" href="onaxmod.html" aria-label="Quay lại trang chính"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a>
+</div>
+<div class="head">
+  <img class="icon" src="https://i.postimg.cc/5tkBjTqK/unnamed.png" alt="">
+  <div>
+    <span class="badge">Android</span><span class="badge hot">★ Nổi bật</span>
+    <h1>Hack Map V1</h1>
+    <div class="count">⬇ <span id="dl">0</span> lượt tải</div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn green" id="open" type="button">⬇ Tải Ngay</button>
+  <a class="btn orange" href="https://link4sub.com/Iaboj49Xxo" target="_blank" rel="noopener">🔑 Get Key Free</a>
+</div>
+
+<div class="card">
+  <h2>Xem trước</h2>
+  <div class="view" id="view">
+    <img id="big" src="xt-01.jpg" alt="">
+    <button class="nav l" id="prev" type="button" aria-label="Ảnh trước">‹</button>
+    <button class="nav r" id="next" type="button" aria-label="Ảnh sau">›</button>
+    <span class="cnt" id="cnt">1 / 14</span>
+  </div>
+  <div class="thumbs" id="th"></div>
+</div>
+
+<div class="card">
+  <h2>Thông tin</h2>
+  <div class="row"><span>Phiên bản</span><b>1.64.1.7</b></div>
+  <div class="row"><span>Nền tảng</span><b>Android</b></div>
+  <div class="row"><span>Định dạng</span><b>.apk</b></div>
+  <div class="row"><span>Bundle ID</span><b>com.garena.game.kgvn</b></div>
+  <div class="row"><span>Phát hành</span><b>10/10/2026</b></div>
+  <div class="row"><span>Cập nhật</span><b>10/10/2026 17:12</b></div>
+</div>
+
+<div class="modal" id="m">
+  <div class="box">
+    <h2>Tải Ngay</h2>
+    <p>Chọn phiên bản phù hợp với bạn!</p>
+    <a class="pick r" href="dl.php?v=red">Tải Menu gốc<small>Cần xoá Liên Quân gốc</small></a>
+    <a class="pick v" href="dl.php?v=tim">Tải Menu gốc<small>Cần xoá Liên Quân gốc</small></a>
+    <button class="close" id="close" type="button">✕ Quay lại</button>
+  </div>
+</div>
+
+<script>
+  var m = document.getElementById('m');
+  document.getElementById('open').onclick = function () { m.className = 'modal on'; };
+  document.getElementById('close').onclick = function () { m.className = 'modal'; };
+  m.onclick = function (e) { if (e.target === m) m.className = 'modal'; };
+  fetch('stats.php', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { document.getElementById('dl').textContent = Number(d.downloads || 0).toLocaleString('vi-VN'); })
+    .catch(function () {});
+
+  var N = 14, cur = 0, big = document.getElementById('big'), cnt = document.getElementById('cnt'), th = document.getElementById('th');
+  function src(k) { return 'xt-' + (k < 9 ? '0' : '') + (k + 1) + '.jpg'; }
+  function show(k) {
+    cur = (k + N) % N;
+    big.src = src(cur);
+    cnt.textContent = (cur + 1) + ' / ' + N;
+    for (var j = 0; j < N; j++) th.children[j].className = j === cur ? 'on' : '';
+    th.children[cur].scrollIntoView({ block: 'nearest', inline: 'center' });
+  }
+  for (var k = 0; k < N; k++) {
+    var t = document.createElement('img');
+    t.src = src(k); t.alt = ''; t.loading = 'lazy';
+    t.onclick = (function (n) { return function () { show(n); }; })(k);
+    th.appendChild(t);
+  }
+  th.children[0].className = 'on';
+  document.getElementById('prev').onclick = function () { show(cur - 1); };
+  document.getElementById('next').onclick = function () { show(cur + 1); };
+  var x0 = null, v = document.getElementById('view');
+  v.ontouchstart = function (e) { x0 = e.touches[0].clientX; };
+  v.ontouchend = function (e) {
+    if (x0 === null) return;
+    var d = e.changedTouches[0].clientX - x0;
+    if (Math.abs(d) > 40) show(cur + (d < 0 ? 1 : -1));
+    x0 = null;
+  };
+</script>
+</body>
+</html>
